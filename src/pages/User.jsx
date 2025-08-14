@@ -22,7 +22,7 @@ const User = () => {
   });
   return(
     <>
-    {isLoading && <p>Loading...</p>}
+    {isLoading && <p className="text-2xl font-bold text-center mt-10">Loading...</p>}
     {isError && <p>Error</p>}
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-5 ">
       {users.map((user)=>(
