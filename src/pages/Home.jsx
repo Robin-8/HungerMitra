@@ -1,22 +1,126 @@
+import { Search } from "lucide-react";
 import React from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+
 
 const Home = () => {
+  
+  const fetchingFoodItems = async () => {
+    try {
+      const response = await axios.get("http://localhost:4000/restaurants");
+      if (!response) throw new Error("fetching is not working");
+      console.log(response,'reshpone here')
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const {
+    data: menu,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["menu"],
+    queryFn: fetchingFoodItems,
+  });
+
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Error loading data</p>;
   return (
-    <>
-     <h1 className="text-4xl font-bold flex justify-center mx-auto p-2 mt-5">
-          Home Page
+    <div className="bg-yellow-400 min-h-screen w-full flex flex-col">
+      <div className="flex flex-col text-6xl mx-auto mt-16">
+        <h1 className="font-bold text-white">
+          Order food & groceries. Discover
         </h1>
-      <div className="flex justify-center  max-h-full mt-16">
-       
-        <div className="shadow-2xl bg-white  rounded-3xl p-28 flex-col justify-center">
-          <h1 className="font-bold text-3xl ">Welcome to Home</h1>
-          <p>
-            Are you looking for users go to user page and find which user you
-            want
-          </p>
+        <h1 className="font-bold text-white">best restaurants. HungerMitra!</h1>
+
+        <div className="flex gap-x-20 mt-8">
+          <div className="relative flex items-center ">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+            <input
+              type="text"
+              placeholder="Enter your location"
+              className="w-full pl-10 pr-4 py-2 text-lg bg-white rounded-2xl shadow-md focus:outline-none"
+            />
+          </div>
+
+          <input
+            type="text"
+            placeholder="Search for restaurant, item or more"
+            className="w-96 pl-4 pr-4 py-2 text-lg bg-white rounded-2xl shadow-md focus:outline-none"
+          />
+        </div>
+        <div className="grid grid-cols-3 mt-10">
+          <div className="shadow-md bg-white rounded-2xl mt-8 p-6 h-60 w-60 relative">
+            <Link to={'productList'}>
+              <h4 className="font-bold text-2xl text-gray-500 uppercase ">
+                Food Time
+              </h4>
+              <p className="text-gray-500 mt-2 text-sm uppercase ">
+                from restaurants
+              </p>
+              <img
+                src="/logo-chef.webp"
+                alt=""
+                className="w-32 h-32 object-contain absolute bottom-2 right-2 "
+              />
+            </Link>
+          </div>
+          <div className="shadow-md bg-white rounded-2xl mt-8 p-6 h-60 w-60 relative">
+            <Link>
+              <h4 className="font-bold text-2xl text-gray-500 uppercase">
+                Grocery
+              </h4>
+              <p className="text-gray-500 mt-2 text-sm uppercase">
+                from stores near you
+              </p>
+              <img
+                src="/logo-chef.webp"
+                alt=""
+                className="w-32 h-32 object-contain absolute bottom-2 right-2"
+              />
+            </Link>
+          </div>
+          <div className="shadow-md bg-white rounded-2xl mt-8 p-6 h-60 w-60 relative">
+            <Link>
+              <h4 className="font-bold text-2xl text-gray-500 uppercase ">
+                Dineout
+              </h4>
+              <p className="text-gray-500 mt-2 text-sm uppercase ">
+                Eat Out & Save more
+              </p>
+              <img
+                src="/logo-chef.webp"
+                alt=""
+                className="w-32 h-32 object-contain absolute bottom-2 right-2 "
+              />
+            </Link>
+          </div>
         </div>
       </div>
-    </>
+      <h1 className="text-3xl font-bold text-white mt-10 mx-auto underline">
+        Some top food category for you
+      </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mt-5 ">
+        {menu?.map((restaurant) =>
+          restaurant.menu?.map((item) => (
+            <Link key={item.id} to={`foodCategory/${item.category}`}>
+              <div className="flex flex-col items-center gap-y-3">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="rounded-full h-32 w-32 object-cover"
+                />
+                <p className="font-bold text-center">{item.category}</p>
+              </div>
+            </Link>
+          ))
+        )}
+      </div>
+    </div>
   );
 };
 

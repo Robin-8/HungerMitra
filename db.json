@@ -1,0 +1,145 @@
+{
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "The Italian Kitchen",
+      "cuisine": ["Italian", "Mexican"],
+      "rating": 4.5,
+      "deliveryTime": "30-40 mins",
+      "location": "MG Road, Bangalore",
+      "isOpen": true,
+      "image": "/images/italian-kitchen.jpg",
+      "menu": [
+        { "id": 1, "name": "Margherita Pizza", "price": 299,  "veg": true, "category": "Pizza", "image": "/menu/MargaritaPizza-.webp" },
+        { "id": 2, "name": "Pepperoni Pizza", "price": 379, "veg": false, "category": "Veg-Pizza", "image": "/menu/Pepperoni Pizza.webp" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Burger Joint",
+      "cuisine": ["American", "Fast Food"],
+      "rating": 4.2,
+      "deliveryTime": "20-30 mins",
+      "location": "Koramangala, Bangalore",
+      "isOpen": true,
+      "image": "/images/burger-joint.jpg",
+      "menu": [
+        { "id": 1, "name": "Cheese Burger", "price": 199, "veg": false, "category": "Burger", "image": "/menu/Cheese-Burger.webp" },
+        { "id": 2, "name": "Veggie Burger", "price": 179, "veg": true, "category": "Veg-Burger", "image": "/menu/veggie-burger.webp" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Curry Palace",
+      "cuisine": ["Indian", "North Indian"],
+      "rating": 4.7,
+      "deliveryTime": "35-45 mins",
+      "location": "Indiranagar, Bangalore",
+      "isOpen": true,
+      "image": "/images/curry-palace.jpg",
+      "menu": [
+        { "id": 1, "name": "Butter Chicken", "price": 349, "veg": false, "category": "Curry", "image": "/menu/butter-chicken.webp" },
+        { "id": 2, "name": "Paneer Butter Masala", "price": 299, "veg": true, "category": "Veg-Curry", "image": "/menu/paneer-butter.webp" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Dragon Express",
+      "cuisine": ["Chinese", "Asian"],
+      "rating": 4.3,
+      "deliveryTime": "25-35 mins",
+      "location": "BTM Layout, Bangalore",
+      "isOpen": true,
+      "image": "/images/dragon-express.jpg",
+      "menu": [
+        { "id": 1, "name": "Hakka Noodles", "price": 229, "veg": true, "category": "Noodles", "image": "/menu/hakka-noodles.webp" },
+        { "id": 2, "name": "Chicken Manchurian", "price": 269, "veg": false, "category": "Main Course", "image": "/menu/chicken-manchurian.webp" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Taco Fiesta",
+      "cuisine": ["Mexican"],
+      "rating": 4.6,
+      "deliveryTime": "20-30 mins",
+      "location": "HSR Layout, Bangalore",
+      "isOpen": true,
+      "image": "/images/taco-fiesta.jpg",
+      "menu": [
+        { "id": 1, "name": "Chicken Tacos", "price": 249, "veg": false, "category": "Taco", "image": "/menu/chicken-tacos.webp" },
+        { "id": 2, "name": "Veg Nachos", "price": 199, "veg": true, "category": "Snacks", "image": "/menu/Veg-Nachos.webp" }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "The Sushi Bar",
+      "cuisine": ["Japanese"],
+      "rating": 4.8,
+      "deliveryTime": "40-50 mins",
+      "location": "Whitefield, Bangalore",
+      "isOpen": true,
+      "image": "/images/sushi-bar.jpg",
+      "menu": [
+        { "id": 1, "name": "California Roll", "price": 399, "veg": false, "category": "Sushi", "image": "/menu/california-roll.webp" },
+        { "id": 2, "name": "Veg Tempura Roll", "price": 349, "veg": true, "category": "Veg-Sushi", "image": "/menu/Veg Tempura Roll.webp" }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "BBQ Nation Express",
+      "cuisine": ["BBQ", "Indian"],
+      "rating": 4.4,
+      "deliveryTime": "35-45 mins",
+      "location": "Marathahalli, Bangalore",
+      "isOpen": false,
+      "image": "/images/bbq-nation.jpg",
+      "menu": [
+        { "id": 1, "name": "Grilled Paneer", "price": 299, "veg": true, "category": "BBQ", "image": "/menu/Grilled Paneer.webp" },
+        { "id": 2, "name": "Chicken Tikka", "price": 349, "veg": false, "category": "Veg-BBQ", "image": "/menu/Chicken Tikka.webp" }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "SubHub",
+      "cuisine": ["Fast Food", "Sandwich"],
+      "rating": 4.1,
+      "deliveryTime": "20-25 mins",
+      "location": "Electronic City, Bangalore",
+      "isOpen": true,
+      "image": "/images/subhub.jpg",
+      "menu": [
+        { "id": 1, "name": "Veggie Delight Sub", "price": 179, "veg": true, "category": "Veg-Sandwich", "image": "/menu/Veggie Delight Sub.webp" },
+        { "id": 2, "name": "Chicken Teriyaki Sub", "price": 229, "veg": false, "category": "Sandwich", "image": "/menu/Chicken Teriyaki Sub.webp" }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Biryani House",
+      "cuisine": ["Indian", "Hyderabadi"],
+      "rating": 4.6,
+      "deliveryTime": "30-40 mins",
+      "location": "JP Nagar, Bangalore",
+      "isOpen": true,
+      "image": "/images/biryani-house.jpg",
+      "menu": [
+        { "id": 1, "name": "Hyderabadi Chicken Biryani", "price": 349, "veg": false, "category": "Biryani", "image": "/menu/Hyderabadi Chicken Biryani.webp" },
+        { "id": 2, "name": "Veg Biryani", "price": 299, "veg": true, "category": "Veg-Biryani", "image": "/menu/Veg Biryani.webp" }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Pizza Paradise",
+      "cuisine": ["Italian"],
+      "rating": 4.2,
+      "deliveryTime": "25-35 mins",
+      "location": "Hebbal, Bangalore",
+      "isOpen": true,
+      "image": "/images/pizza-paradise.jpg",
+      "menu": [
+        { "id": 1, "name": "Farmhouse Pizza", "price": 329, "veg": true, "category": "Pizza", "image": "/menu/farmhouse-pizza.webp" },
+        { "id": 2, "name": "Pasta Alfredo", "price": 349, "veg": true, "category": "Pasta", "image": "/menu/pasta-alfredo.webp" }
+      ]
+    }
+   
+  ]
+}
