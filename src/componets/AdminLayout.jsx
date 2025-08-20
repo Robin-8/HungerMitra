@@ -1,13 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "./Navbar";
+import AdminNavbar from "./AdminNavbar";
 import { Toaster } from "react-hot-toast";
-
-const Layout = () => {
+const AdminLayout = () => {
   return (
-    <div>
-      <Navbar />
-      <main> 
+    <div className="flex">
+      <AdminNavbar />
+      <main className="flex-1 p-6">
         <Outlet />
       </main>
       <Toaster position="top-right" reverseOrder={false} />
@@ -15,4 +14,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default AdminLayout;
