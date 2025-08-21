@@ -1,15 +1,27 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 const AdminLogin = () => {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    // console.log(e.target.value);
+  const onSubmit = (data) => {
+    const adminEmail = data.email.trim()
+    const adminPassword = data.password.trim()
+    const existingAdmin = localStorage.getItem('admin')
+    if(!existingAdmin){
+      toast.error('Admin not found')
+      return
+    }else{
+      adminEmail === existingAdmin.email && adminPassword === existingAdmin.password
+      toast.success('password and email matched')
+      navigate('/adminDashbord')
+    }
   };
   return (
     <>

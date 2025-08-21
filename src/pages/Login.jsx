@@ -11,15 +11,18 @@ const Login = () => {
   } = useForm();
  const navigate = useNavigate()
   const onSubmit = (data) => {
+   const trimedEmail = data.email.trim()
+   const trimedPassword = data.password.trim()
     const storedUser = localStorage.getItem("user");
     if (!storedUser) {
       toast.error("No user found signup first");
       return;
     }
     const presentUser = JSON.parse(storedUser);
+    
     if (
-      data.email === presentUser.email &&
-      data.password === presentUser.password
+      trimedEmail === presentUser.email &&
+      trimedPassword=== presentUser.password
     ) {
       toast.success("User login successful");
       navigate('/')
