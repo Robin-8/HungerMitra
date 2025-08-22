@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const cartItems = useSelector((state) => state.cart.items);
+  const cartCount = cartItems.reduce((sum,item)=>sum+item.quantity,0)
    localStorage.getItem("user",JSON.stringify());
    const existingUser = JSON.parse(localStorage.getItem('user'))
    
@@ -26,12 +27,13 @@ const Navbar = () => {
           <NavLink to={"/"}>
             <li>Home</li>
           </NavLink>
-          <NavLink to={"/contact"}>
-            <li>Contact</li>
+          <NavLink to={"/hotel"}>
+            <li>Hotels</li>
           </NavLink>
           <NavLink to={"/cart"}>
             <li className="flex items-center">
-              {cartItems.length} Cart <ShoppingCart />
+               <ShoppingCart />
+               <span>{cartCount}</span>
             </li>
           </NavLink>
           {existingUser ? (

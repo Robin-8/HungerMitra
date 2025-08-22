@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 
 const CheckOut = () => {
   const cartItems = useSelector((state) => state.cart.items);
+  const totalPrice = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
   return (
     <div className="grid grid-cols-2">
       <div className="grid col-span-1  bg-white">
@@ -21,10 +26,20 @@ const CheckOut = () => {
           </Link>
         </form>
       </div>
-      <div className="grud col-span-1 bg-white">
+      <div className="grid col-span-1 bg-white items-center justify-center">
         {cartItems?.map((item) => (
-          <div>
-            <img src={item.image} alt="image in cart" />
+          <div className="shadow-2xl bg-white">
+            <img
+              src={item.image}
+              alt="image in cart"
+              className="w-2/3 h-56 object-contain"
+            />
+            <p>
+              {" "}
+              Price: {item.price} × {item.quantity} ={" "}
+              {item.price * item.quantity}
+            </p>
+              <p>Total Price :{totalPrice}</p>
           </div>
         ))}
       </div>

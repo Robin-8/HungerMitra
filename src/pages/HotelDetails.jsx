@@ -51,21 +51,24 @@ const HotelDetails = () => {
         <p>{hotel.location}</p>
       </div>
 
-      <input
+      <div className="flex items-center justify-end mr-2">
+         <input
         type="text"
         placeholder="Search menu..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="border p-2 my-4"
+        className="border p-2 my-4 rounded-md focus:border-blue-500  focus:ring-blue-500"
       />
       <select
         value={sortedOption}
         onChange={(e) => setSortedOption(e.target.value)}
+        className="border p-2 my-4 rounded-md focus:border-blue-500  focus:ring-blue-500"
       >
         <option value="">Sort By</option>
         <option value="High-Low">Price:High to Low</option>
         <option value="Low-High">Price:Low to High</option>
       </select>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {filteredItems.map((value) => (
@@ -74,7 +77,7 @@ const HotelDetails = () => {
             <h2 className="font-bold">{value.name}</h2>
             <p>{value.price}</p>
             <Link to={`/foodDetails/${hotel.id}-${value.id}`}>
-              <button>Food Details</button>
+              <button className="bg-black text-white font-bold rounded-md p-2 px-2">Food Details</button>
             </Link>
           </div>
         ))}

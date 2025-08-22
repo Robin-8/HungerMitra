@@ -28,7 +28,7 @@ const Home = () => {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error loading data</p>;
   return (
-    <div className="bg-yellow-400 min-h-screen w-full flex flex-col">
+    <div className="bg-black min-h-screen w-full flex flex-col">
       <div className="flex flex-col text-6xl mx-auto mt-16">
         <h1 className="font-bold text-white">
           Order food & groceries. Discover
