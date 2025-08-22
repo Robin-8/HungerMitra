@@ -15,7 +15,6 @@ const FoodList = () => {
   };
 
   const [serach, setSerach] = useState("");
-  const [sortedOption, setSortedOption] = useState("");
 
   const {
     data: menu = [],
@@ -39,11 +38,7 @@ const FoodList = () => {
     p.name.toLowerCase().includes(serach.toLowerCase())
   );
 
-  if (sortedOption === "Low-High") {
-    filteredItems = [...filteredItems].sort((a, b) => a.price - b.price);
-  } else if (sortedOption === "High-Low") {
-    filteredItems = [...filteredItems].sort((a, b) => b.price - a.price);
-  }
+
 
   const filter = filteredItems;
   return (
@@ -59,31 +54,32 @@ const FoodList = () => {
           value={serach}
           onChange={(e) => setSerach(e.target.value)}
         />
-        <select
-          value={sortedOption}
-          onChange={(e) => setSortedOption(e.target.value)}
-        >
-          <option value="">Sort By</option>
-          <option value="High-Low">Price:High to Low</option>
-          <option value="Low-High">Price:Low to High</option>
-        </select>
+     
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 m-6 mt-5">
-        {filter?.map((item) => (
-          <div key={item.uniqueId} className="shadow-md p-2 rounded-lg">
-            <img
-              src={item.image}
-              alt={item.name}
-              className="h-40 w-full object-cover rounded-md"
-            />
-            <p className="font-bold">{item.name}</p>
-            <p>Price: {item.price}</p>
-            <p className="text-sm text-gray-600">📍 {item.location}</p>
-            <Link to={`/foodDetails/${item.uniqueId}`}>
-              <button className="bg-blue-600 text-white ">Food Detials</button>
-            </Link>
-          </div>
-        ))}
+        {filter.length > 0 ? (
+          filter.map((item) => (
+            <div key={item.uniqueId} className="shadow-md p-2 rounded-lg">
+              <img
+                src={item.image}
+                alt={item.name}
+                className="h-40 w-full object-cover rounded-md"
+              />
+              <p className="font-bold">{item.name}</p>
+              <p>Price: {item.price}</p>
+              <p className="text-sm text-gray-600"> {item.location}</p>
+              <Link to={`/foodDetails/${item.uniqueId}`}>
+                <button className="bg-blue-600 text-white p-2 px-3 rounded-md">
+                  Food Details
+                </button>
+              </Link>
+            </div>
+          ))
+        ) : (
+          <p className="text-center col-span-full text-red-500 font-semibold">
+            🚫 No matching product found
+          </p>
+        )}
       </div>
     </>
   );

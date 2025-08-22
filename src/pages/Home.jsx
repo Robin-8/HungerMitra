@@ -4,14 +4,12 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
-
 const Home = () => {
-  
   const fetchingFoodItems = async () => {
     try {
       const response = await axios.get("http://localhost:4000/restaurants");
       if (!response) throw new Error("fetching is not working");
-      console.log(response,'reshpone here')
+      console.log(response, "reshpone here");
       return response.data;
     } catch (error) {
       console.log(error);
@@ -55,7 +53,7 @@ const Home = () => {
         </div>
         <div className="grid grid-cols-3 mt-10">
           <div className="shadow-md bg-white rounded-2xl mt-8 p-6 h-60 w-60 relative">
-            <Link to={'productList'}>
+            <Link to={`hotel`}>
               <h4 className="font-bold text-2xl text-gray-500 uppercase ">
                 Food Time
               </h4>

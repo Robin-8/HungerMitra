@@ -1,11 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { addToCart } from "../slice/cartSlice";
 import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 
 const FoodDetails = () => {
+  const navigate = useNavigate();
+  const existingUser = localStorage.getItem("user");
   const { foodId } = useParams();
   const dispatch = useDispatch();
 
@@ -57,14 +60,28 @@ const FoodDetails = () => {
         <p> {singleProduct.rating}</p>
         <p> {singleProduct.location}</p>
         <p> Price: {singleProduct.price}</p>
-
-        <Link to={'/cart'}>
-          <button
-            onClick={() => dispatch(addToCart(singleProduct))}
-            className="bg-yellow-400 text-white font-semibold p-2 px-4 rounded-md"
-          >
-            Add To Cart
-          </button>
+        <Link to={existingUser ? "/cart" : "/signup"}>
+          {existingUser ? (
+            <button
+              onClick={() => {
+                dispatch(addToCart(singleProduct));
+                toast.success("Item added to cart");
+              }}
+              className="bg-yellow-400 text-white font-semibold p-2 px-4 rounded-md"
+            >
+              Add To Cart
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                toast.error("Please signup first");
+                navigate("/signup");
+              }}
+              className="bg-red-500 text-white font-semibold p-2 px-4 rounded-md"
+            >
+              Signup to Add
+            </button>
+          )}
         </Link>
       </div>
     </div>

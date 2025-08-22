@@ -25,6 +25,7 @@ const Login = () => {
       trimedPassword=== presentUser.password
     ) {
       toast.success("User login successful");
+      reset()
       navigate('/')
     } else {
       toast.error("Invalid Password or Email");
@@ -44,11 +45,8 @@ const Login = () => {
             <p className="text-red-500">{errors.email.message}</p>
           )}
           <label htmlFor="password">Enter Password</label>
-          <input
-            {...register("password", { required: true })}
-            placeholder="Enter Password"
-            className="border-2 border-black rounded-md p-2"
-          />
+         <input type="password" {...register("password", { required: "Password is required" })} />
+
           {errors.password && (
             <p className="text-red-500">{errors.password.message}</p>
           )}
