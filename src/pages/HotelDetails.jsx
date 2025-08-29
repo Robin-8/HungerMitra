@@ -52,32 +52,41 @@ const HotelDetails = () => {
       </div>
 
       <div className="flex items-center justify-end mr-2">
-         <input
-        type="text"
-        placeholder="Search menu..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="border p-2 my-4 rounded-md focus:border-blue-500  focus:ring-blue-500"
-      />
-      <select
-        value={sortedOption}
-        onChange={(e) => setSortedOption(e.target.value)}
-        className="border p-2 my-4 rounded-md focus:border-blue-500  focus:ring-blue-500"
-      >
-        <option value="">Sort By</option>
-        <option value="High-Low">Price:High to Low</option>
-        <option value="Low-High">Price:Low to High</option>
-      </select>
+        <input
+          type="text"
+          placeholder="Search menu..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="border p-2 my-4 rounded-md focus:border-blue-500  focus:ring-blue-500"
+        />
+        <select
+          value={sortedOption}
+          onChange={(e) => setSortedOption(e.target.value)}
+          className="border p-2 my-4 rounded-md focus:border-blue-500  focus:ring-blue-500"
+        >
+          <option value="">Sort By</option>
+          <option value="High-Low">Price:High to Low</option>
+          <option value="Low-High">Price:Low to High</option>
+        </select>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {filteredItems.map((value) => (
-          <div key={value.id} className="shadow-lg p-4">
-            <img src={value.image} alt={value.name} className="w-full h-48" />
-            <h2 className="font-bold">{value.name}</h2>
-            <p>{value.price}</p>
+          <div
+            key={value.id}
+            className="shadow-lg p-4 rounded-lg overflow-hidden group"
+          >
+            <img
+              src={value.image}
+              alt={value.name}
+              className="w-full h-48 object-cover transform transition-transform duration-300 group-hover:scale-110 rounded-lg"
+            />
+            <h2 className="font-bold mt-2">{value.name}</h2>
+            <p className="text-gray-600">₹{value.price}</p>
             <Link to={`/foodDetails/${hotel.id}-${value.id}`}>
-              <button className="bg-black text-white font-bold rounded-md p-2 px-2">Food Details</button>
+              <button className="bg-black text-white font-bold rounded-md mt-2 p-2 px-4 hover:bg-gray-800 transition">
+                Food Details
+              </button>
             </Link>
           </div>
         ))}

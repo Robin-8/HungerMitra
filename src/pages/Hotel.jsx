@@ -29,7 +29,7 @@ const Hotel = () => {
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 mt-4">
         {hotels?.map((resturant) => (
           <Link key={resturant.id} to={`/hotelDetails/${resturant.id}`}>
-            <div className="shadow-2xl bg-white rounded-lg gap-4 mt-5">
+            <div className="shadow-2xl bg-white rounded-lg gap-4 mt-5 overflow-hidden group hover:shadow-3xl hover:-translate-y-1 transition-all duration-300">
               <img
                 key={resturant.id}
                 src={resturant.image}

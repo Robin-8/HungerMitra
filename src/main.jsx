@@ -22,9 +22,12 @@ import AdminLayout from "./componets/AdminLayout";
 import AdminDashbord from "./pages/AdminDashbord";
 import AdminSignup from "./pages/AdminSignup";
 import CheckOut from "./pages/CheckOut";
-import OrderDetails from "./pages/OrderDetails";
 import Hotel from "./pages/Hotel";
 import HotelDetails from "./pages/HotelDetails";
+import Payment from "./pages/Payment";
+import OrderSuccess from "./pages/OrderSuccess";
+import UserManager from "./adminPages/UserManager";
+import OrderAdmin from "./adminPages/OrderAdmin";
 
 const queryClient = new QueryClient();
 
@@ -47,7 +50,8 @@ createRoot(document.getElementById("root")).render(
               element={<HotelDetails />}/>
             <Route path="foodDetails/:foodId" element={<FoodDetails />} />
             <Route path="checkout" element={<CheckOut />} />
-            <Route path="orderDetails" element={<OrderDetails />} />
+            <Route path="payment" element={<Payment />} />
+            <Route path="orderSuccess" element={<OrderSuccess/>}/>
           </Route>
 
           {/* Admin Routes */}
@@ -55,6 +59,8 @@ createRoot(document.getElementById("root")).render(
             <Route index element={<AdminDashbord />} />
             <Route path="adminLogin" element={<AdminLogin />} />
             <Route path="adminSignup" element={<AdminSignup />} />
+            <Route path="createUser"element={<UserManager/>}/>
+            <Route path="orderAdmin" element={<OrderAdmin/>}/>
           </Route>
         </Routes>
       </Provider>

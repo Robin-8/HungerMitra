@@ -14,9 +14,11 @@ const AdminNavbar = () => {
           <SidebarItem href="#" icon={HiChartPie}>
             Dashboard
           </SidebarItem>
-          <SidebarItem href="#" icon={HiViewBoards}>
+         <Link to={'orderAdmin'}>
+          <SidebarItem icon={HiViewBoards}>
             Order
           </SidebarItem>
+         </Link>
           <SidebarItem href="#" icon={HiShoppingBag} >
            Products
           </SidebarItem>

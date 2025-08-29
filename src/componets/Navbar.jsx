@@ -3,12 +3,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ darkMode, setDarkMode }) => {
   const cartItems = useSelector((state) => state.cart.items);
-  const cartCount = cartItems.reduce((sum,item)=>sum+item.quantity,0)
-   localStorage.getItem("user",JSON.stringify());
-   const existingUser = JSON.parse(localStorage.getItem('user'))
-   
+  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  localStorage.getItem("user", JSON.stringify());
+  const existingUser = JSON.parse(localStorage.getItem("user"));
+
   return (
     <nav className="flex justify-between items-center w-full shadow-2xl bg-white p-5">
       <Link to={"/"}>
@@ -32,17 +32,20 @@ const Navbar = () => {
           </NavLink>
           <NavLink to={"/cart"}>
             <li className="flex items-center">
-               <ShoppingCart />
-               <span>{cartCount}</span>
+              <ShoppingCart />
+              <span>{cartCount}</span>
             </li>
           </NavLink>
           {existingUser ? (
-            <p>Welcom, {existingUser.name}</p>
+            <p> {existingUser.name}</p>
           ) : (
-            <Link to={'/signup'}>
+            <Link to={"/signup"}>
               <button className="font-semibold text-white">Signup</button>
             </Link>
           )}
+          <button onClick={() => setDarkMode(!darkMode)}>
+            {darkMode ? "☀️" : "🌙"}
+          </button>
         </ul>
       </div>
     </nav>

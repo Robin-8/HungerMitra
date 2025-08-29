@@ -36,53 +36,66 @@ const AdminLogin = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-col items-center justify-center gap-4 mt-10">
-        <div className="flex flex-col shadow-2xl bg-white rounded-xl p-2 w-96 h-96">
-          {/* Email */}
-          <label htmlFor="email">Enter Email</label>
-          <input
-            {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, // simple email regex
-                message: "Enter a valid email",
-              },
-            })}
-            placeholder="Enter Email"
-            className="border-2 border-black rounded-md p-2"
-          />
-          {errors.email && (
-            <p className="text-red-500">{errors.email.message}</p>
-          )}
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-md"
+      >
+        {/* Title */}
+        <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
+          Admin Login
+        </h2>
 
-          {/* Password */}
-          <label htmlFor="password">Enter Password</label>
-          <input
-            type="password"
-            {...register("password", {
-              required: "Password is required",
-              minLength: {
-                value: 6,
-                message: "Password must be at least 6 characters",
-              },
-            })}
-            placeholder="Enter Password"
-            className="border-2 border-black rounded-md p-2"
-          />
-          {errors.password && (
-            <p className="text-red-500">{errors.password.message}</p>
-          )}
+        {/* Email */}
+        <label htmlFor="email" className="block text-sm font-medium mb-1">
+          Email
+        </label>
+        <input
+          {...register("email", {
+            required: "Email is required",
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: "Enter a valid email",
+            },
+          })}
+          placeholder="Enter your email"
+          className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        {errors.email && (
+          <p className="text-red-500 text-sm mb-2">{errors.email.message}</p>
+        )}
 
-          <button
-            type="submit"
-            className="bg-blue-500 text-white p-2 rounded-md mt-4"
-          >
-            Login
-          </button>
-        </div>
-      </div>
-    </form>
+        {/* Password */}
+        <label htmlFor="password" className="block text-sm font-medium mb-1">
+          Password
+        </label>
+        <input
+          type="password"
+          {...register("password", {
+            required: "Password is required",
+            minLength: {
+              value: 6,
+              message: "Password must be at least 6 characters",
+            },
+          })}
+          placeholder="Enter your password"
+          className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        {errors.password && (
+          <p className="text-red-500 text-sm mb-2">
+            {errors.password.message}
+          </p>
+        )}
+
+        {/* Button */}
+        <button
+          type="submit"
+          className=" bg-green-600 hover:bg-green-700 text-white font-semibold p-2 px-4 rounded-lg transition duration-200"
+        >
+          Login
+        </button>
+      </form>
+    </div>
   );
 };
 

@@ -49,17 +49,20 @@ const FoodDetails = () => {
   if (!singleProduct) return <p>No product found</p>;
 
   return (
-    <div className="flex flex-col items-center mt-9 ">
-      <div className="shadow-2xl bg-white p-4 rounded-lg w-96">
+    <div className="flex flex-col items-center mt-9">
+      <div className="shadow-2xl bg-white p-4 rounded-lg w-96 overflow-hidden group">
         <img
           src={singleProduct.image}
           alt={singleProduct.name}
-          className="h-64 w-96 object-cover rounded-md"
+          className="h-64 w-96 object-cover rounded-md transform transition-transform duration-300 group-hover:scale-110"
         />
-        <h2 className="font-bold text-xl mt-2">{singleProduct.name}</h2>
-        <p> {singleProduct.rating}</p>
-        <p> {singleProduct.location}</p>
-        <p> Price: {singleProduct.price}</p>
+        <h2 className="font-bold text-xl mt-4">{singleProduct.name}</h2>
+        <p className="text-gray-600">⭐ {singleProduct.rating}</p>
+        <p className="text-gray-500">{singleProduct.location}</p>
+        <p className="text-green-600 font-semibold">
+          Price: ₹{singleProduct.price}
+        </p>
+
         <Link to={existingUser ? "/cart" : "/signup"}>
           {existingUser ? (
             <button
@@ -67,7 +70,7 @@ const FoodDetails = () => {
                 dispatch(addToCart(singleProduct));
                 toast.success("Item added to cart");
               }}
-              className="bg-yellow-400 text-white font-semibold p-2 px-4 rounded-md"
+              className="bg-yellow-400 text-white font-semibold p-2 px-4 rounded-md mt-3 hover:bg-yellow-500 transition"
             >
               Add To Cart
             </button>
@@ -77,7 +80,7 @@ const FoodDetails = () => {
                 toast.error("Please signup first");
                 navigate("/signup");
               }}
-              className="bg-red-500 text-white font-semibold p-2 px-4 rounded-md"
+              className="bg-red-500 text-white font-semibold p-2 px-4 rounded-md mt-3 hover:bg-red-600 transition"
             >
               Signup to Add
             </button>

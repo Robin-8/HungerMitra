@@ -45,7 +45,7 @@ const FoodCategory = () => {
             <img
               src={item.image}
               alt="food-image"
-              className="rounded-2xl h-44 w-56"
+              className="rounded-2xl h-44 w-56 "
             />
             <p className="font-bold">{item.name}</p>
             <p className=""> Price:{item.price}</p>

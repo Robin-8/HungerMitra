@@ -30,7 +30,6 @@ const AdminSignup = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col items-center justify-center h-96 mt-16">
         <div className="flex flex-col shadow-2xl bg-white rounded-xl gap-y-4 w-96 p-5">
-          
           {/* Name */}
           <label htmlFor="name">Enter Name</label>
           <input
@@ -40,7 +39,7 @@ const AdminSignup = () => {
             className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
           {errors.name && <p className="text-red-500">{errors.name.message}</p>}
-          
+
           {/* Email */}
           <label htmlFor="email">Enter Email</label>
           <input
@@ -55,8 +54,10 @@ const AdminSignup = () => {
             placeholder="Enter Your Email"
             className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
-          {errors.email && <p className="text-red-500">{errors.email.message}</p>}
-          
+          {errors.email && (
+            <p className="text-red-500">{errors.email.message}</p>
+          )}
+
           {/* Password */}
           <label htmlFor="password">Password</label>
           <input
@@ -68,7 +69,8 @@ const AdminSignup = () => {
               },
               pattern: {
                 value: /^(?=.*[A-Z])(?=.*\d).+$/,
-                message: "Password must include at least 1 uppercase letter and 1 number",
+                message:
+                  "Password must include at least 1 uppercase letter and 1 number",
               },
             })}
             id="password"
@@ -76,8 +78,10 @@ const AdminSignup = () => {
             placeholder="Enter Your Password"
             className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
-          {errors.password && <p className="text-red-500">{errors.password.message}</p>}
-          
+          {errors.password && (
+            <p className="text-red-500">{errors.password.message}</p>
+          )}
+
           {/* Confirm Password */}
           <label htmlFor="confirmPassword">Confirm Password</label>
           <input
@@ -91,12 +95,14 @@ const AdminSignup = () => {
             placeholder="Confirm Your Password"
             className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
-          {errors.confirmPassword && <p className="text-red-500">{errors.confirmPassword.message}</p>}
-          
+          {errors.confirmPassword && (
+            <p className="text-red-500">{errors.confirmPassword.message}</p>
+          )}
+
           {/* Submit */}
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-600 transition text-white font-medium rounded-xl p-2"
+            className=" bg-green-600 hover:bg-green-700 text-white font-semibold p-2 px-4 rounded-lg transition duration-200"
           >
             Sign Up
           </button>
