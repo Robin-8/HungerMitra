@@ -16,7 +16,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           <img
             src="/logo-chef.webp"
             alt="logo-header"
-            className="w-12 h-12 rounded-2xl\"
+            className="w-12 h-12 rounded-2xl"
           />
           <p className="text-black">HungerMitra</p>
         </div>

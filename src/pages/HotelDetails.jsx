@@ -47,8 +47,8 @@ const HotelDetails = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-semibold">{hotel.name}</h1>
-        <p>{hotel.location}</p>
+        <h1 className="text-2xl font-semibold dark:text-white">{hotel.name}</h1>
+        <p className="dark:text-white">{hotel.location}</p>
       </div>
 
       <div className="flex items-center justify-end mr-2">

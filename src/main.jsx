@@ -28,6 +28,7 @@ import Payment from "./pages/Payment";
 import OrderSuccess from "./pages/OrderSuccess";
 import UserManager from "./adminPages/UserManager";
 import OrderAdmin from "./adminPages/OrderAdmin";
+import UserDetails from "./pages/UserDetails";
 
 const queryClient = new QueryClient();
 
@@ -55,12 +56,13 @@ createRoot(document.getElementById("root")).render(
           </Route>
 
           {/* Admin Routes */}
-          <Route path="admin" element={<AdminLayout />}>
-            <Route index element={<AdminDashbord />} />
+          <Route path="layout" element={<AdminLayout />}>
+          <Route index element={<AdminDashbord/>}/>
             <Route path="adminLogin" element={<AdminLogin />} />
             <Route path="adminSignup" element={<AdminSignup />} />
             <Route path="createUser"element={<UserManager/>}/>
             <Route path="orderAdmin" element={<OrderAdmin/>}/>
+            <Route path="userDetails" element={<UserDetails/>}/>
           </Route>
         </Routes>
       </Provider>

@@ -45,11 +45,18 @@ function Cart() {
                 </button>
                 <p>{item.quantity}</p>
                 <button
-                  className="bg-black text-white font-bold px-2 rounded-md"
+                  className={`px-2 rounded-md font-bold 
+    ${
+      item.quantity === 0
+        ? "bg-gray-400 text-gray-200 cursor-not-allowed"
+        : "bg-black text-white"
+    }`}
+                  disabled={item.quantity === 0}
                   onClick={() => dispatch(minusQuantity(item))}
                 >
                   -
                 </button>
+
                 <button
                   className="bg-red-600 text-white font-semibold rounded-md px-2"
                   onClick={() => dispatch(removeCart(item.id))}
@@ -68,7 +75,9 @@ function Cart() {
           <div className="mt-4 text-lg font-bold text-center">
             Total: ₹{totalPrice}
             <Link to={"/checkout"}>
-            <p className="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-600 mt-4">Checkout</p>
+              <p className="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-600 mt-4">
+                Checkout
+              </p>
             </Link>
           </div>
         </div>

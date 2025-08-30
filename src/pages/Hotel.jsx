@@ -23,7 +23,7 @@ const Hotel = () => {
   });
   return (
     <>
-      <h1 className="font-bold flex justify-center mt-3 text-2xl">
+      <h1 className="font-bold flex justify-center mt-3 text-2xl dark:text-white">
         Avilable Hotels
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 mt-4">
