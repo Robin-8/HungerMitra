@@ -36,10 +36,10 @@ const AdminNavbar = () => {
           <Link to={"userDetails"}>
             <SidebarItem icon={HiUser}>Users</SidebarItem>
           </Link>
-          <SidebarItem as={Link} to="/admin/adminLogin" con={HiArrowSmRight}>
+          <SidebarItem as={Link} to="/layout/adminLogin" con={HiArrowSmRight}>
             Sign In
           </SidebarItem>
-          <SidebarItem as={Link} to="/admin/adminSignup" icon={HiTable}>
+          <SidebarItem as={Link} to="/layout/adminSignup" icon={HiTable}>
             Sign Up
           </SidebarItem>
         </SidebarItemGroup>

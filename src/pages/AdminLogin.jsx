@@ -29,7 +29,7 @@ const AdminLogin = () => {
       adminPassword === parsedAdmin.password
     ) {
       toast.success("Login successful");
-      navigate("/adminDashbord");
+      navigate("/layout");
     } else {
       toast.error("Invalid email or password");
     }

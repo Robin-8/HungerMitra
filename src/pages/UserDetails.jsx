@@ -31,7 +31,7 @@ const UserDetails = () => {
             <td className="border border-gray-300 px-4 py-2">Email</td>
             <td className="border border-gray-300 px-4 py-2">{existingUser.email}</td>
           </tr>
-          {/* Add more fields if you save them in localStorage */}
+          
         </tbody>
       </table>
     </div>

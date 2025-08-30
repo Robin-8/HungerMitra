@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AdminSignup = () => {
   const {
@@ -9,6 +10,8 @@ const AdminSignup = () => {
     watch,
     formState: { errors },
   } = useForm();
+
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     const storedAdmin = localStorage.getItem("admin");
@@ -21,9 +24,11 @@ const AdminSignup = () => {
     // Save admin
     localStorage.setItem("admin", JSON.stringify(data));
     toast.success("Admin registration completed");
+
+    // Navigate after success
+    navigate("/layout");
   };
 
-  // Watch password field for confirm validation
   const password = watch("password");
 
   return (
@@ -99,7 +104,7 @@ const AdminSignup = () => {
             <p className="text-red-500">{errors.confirmPassword.message}</p>
           )}
 
-          {/* Submit */}
+          {/* ✅ Correct button */}
           <button
             type="submit"
             className=" bg-green-600 hover:bg-green-700 text-white font-semibold p-2 px-4 rounded-lg transition duration-200"
