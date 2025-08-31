@@ -29,6 +29,7 @@ import OrderSuccess from "./pages/OrderSuccess";
 import UserManager from "./adminPages/UserManager";
 import OrderAdmin from "./adminPages/OrderAdmin";
 import UserDetails from "./pages/UserDetails";
+import ErrorPage from "./pages/ErrorPage";
 
 const queryClient = new QueryClient();
 
@@ -46,24 +47,25 @@ createRoot(document.getElementById("root")).render(
             <Route path="hotel" element={<Hotel />} />
             <Route path="cart" element={<Cart />} />
             <Route path="productList" element={<FoodList />} />
-            <Route
-              path="hotelDetails/:hotelId"
-              element={<HotelDetails />}/>
+            <Route path="hotelDetails/:hotelId" element={<HotelDetails />} />
             <Route path="foodDetails/:foodId" element={<FoodDetails />} />
             <Route path="checkout" element={<CheckOut />} />
             <Route path="payment" element={<Payment />} />
-            <Route path="orderSuccess" element={<OrderSuccess/>}/>
+            <Route path="orderSuccess" element={<OrderSuccess />} />
           </Route>
 
-          {/* Admin Routes */}
+         
           <Route path="admin" element={<AdminLayout />}>
-          <Route index element={<AdminDashbord/>}/>
+            <Route index element={<AdminDashbord />} />
             <Route path="adminLogin" element={<AdminLogin />} />
             <Route path="adminSignup" element={<AdminSignup />} />
-            <Route path="createUser"element={<UserManager/>}/>
-            <Route path="orderAdmin" element={<OrderAdmin/>}/>
-            <Route path="userDetails" element={<UserDetails/>}/>
+            <Route path="createUser" element={<UserManager />} />
+            <Route path="orderAdmin" element={<OrderAdmin />} />
+            <Route path="userDetails" element={<UserDetails />} />
           </Route>
+
+          
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Provider>
     </QueryClientProvider>
