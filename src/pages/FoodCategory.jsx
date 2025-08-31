@@ -6,7 +6,8 @@ import { Link, useParams } from "react-router-dom";
 const FoodCategory = () => {
   const fetchingFoodItems = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/restaurants");
+      const response = await axios.get("/api/server/restaurants");
+
       if (!response) throw new Error("fetching not happening");
       return response.data
     } catch (error) {

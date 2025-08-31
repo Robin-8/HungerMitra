@@ -17,7 +17,7 @@ const OrderAdmin = () => {
               <th className="px-6 py-3">Total</th>
               <th className="px-6 py-3">Status</th>
               <th className="px-6 py-3">Date</th>
-              <th className="px-6 py-3">Actions</th>
+            
             </tr>
           </thead>
           {orderDetials?.map((item) => (
@@ -33,11 +33,7 @@ const OrderAdmin = () => {
                   </span>
                 </td>
                 <td className="px-6 py-4">2025-08-27</td>
-                <td className="px-6 py-4">
-                  <button className="px-3 py-1 text-sm text-white bg-blue-600 rounded-lg hover:bg-blue-700">
-                    View
-                  </button>
-                </td>
+               
               </tr>
             </tbody>
           ))}
