@@ -5,26 +5,23 @@ import {
   SidebarItems,
 } from "flowbite-react";
 import {
-  HiArrowSmRight,
   HiChartPie,
-  HiInbox,
   HiShoppingBag,
-  HiTable,
   HiUser,
   HiViewBoards,
+  HiLogin,
+  HiUserAdd,
 } from "react-icons/hi";
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 const AdminNavbar = () => {
-
   return (
-    <Sidebar className="h-screen w-64 bg-gray-900 text-white shadow-lg ">
-      <SidebarItems className="">
+    <Sidebar className="h-screen w-64 bg-gray-900 text-white shadow-lg">
+      <SidebarItems>
         <SidebarItemGroup>
-          <SidebarItem href="layout" icon={HiChartPie}>
+          <SidebarItem href="admin" icon={HiChartPie}>
             Dashboard
           </SidebarItem>
           <Link to={"orderAdmin"}>
@@ -36,10 +33,10 @@ const AdminNavbar = () => {
           <Link to={"userDetails"}>
             <SidebarItem icon={HiUser}>Users</SidebarItem>
           </Link>
-          <SidebarItem as={Link} to="/layout/adminLogin" con={HiArrowSmRight}>
+          <SidebarItem as={Link} to="/admin/adminLogin" icon={HiLogin}>
             Sign In
           </SidebarItem>
-          <SidebarItem as={Link} to="/layout/adminSignup" icon={HiTable}>
+          <SidebarItem as={Link} to="/admin/adminSignup" icon={HiUserAdd}>
             Sign Up
           </SidebarItem>
         </SidebarItemGroup>

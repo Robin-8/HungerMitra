@@ -13,13 +13,13 @@ const AdminDashboard = () => {
         <p className="mb-4">Please signup or login as an admin first.</p>
         <div className="flex gap-4">
           <Link
-            to="/layout/adminSignup"
+            to="/admin/adminSignup"
             className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
           >
             Signup
           </Link>
           <Link
-            to="/layout/adminLogin"
+            to="/admin/adminLogin"
             className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
           >
             Login
@@ -37,7 +37,7 @@ const AdminDashboard = () => {
       <h1 className="mt-5">Do you want to see user orders? Click below</h1>
       <Link
         className="bg-black text-white font-bold rounded-lg px-2"
-        to="/layout/orderAdmin"
+        to="/admin/orderAdmin"
       >
         Click Here
       </Link>

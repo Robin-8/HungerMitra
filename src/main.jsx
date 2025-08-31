@@ -56,7 +56,7 @@ createRoot(document.getElementById("root")).render(
           </Route>
 
           {/* Admin Routes */}
-          <Route path="layout" element={<AdminLayout />}>
+          <Route path="admin" element={<AdminLayout />}>
           <Route index element={<AdminDashbord/>}/>
             <Route path="adminLogin" element={<AdminLogin />} />
             <Route path="adminSignup" element={<AdminSignup />} />

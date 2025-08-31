@@ -26,7 +26,7 @@ const AdminSignup = () => {
     toast.success("Admin registration completed");
 
     // Navigate after success
-    navigate("/layout");
+    navigate("/admin");
   };
 
   const password = watch("password");
