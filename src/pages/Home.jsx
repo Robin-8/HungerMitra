@@ -7,11 +7,11 @@ import { useQuery } from "@tanstack/react-query";
 const Home = () => {
   const fetchingFoodItems = async () => {
     try {
-const response = await axios.get("https://hungermitra-api.onrender.com/restaurants");
+      const response = await axios.get("http://localhost:4000/restaurants");
 
       if (!response) throw new Error("fetching is not working");
       console.log(response, "reshpone here");
-      return response.data
+      return response.data;
     } catch (error) {
       console.log(error);
     }

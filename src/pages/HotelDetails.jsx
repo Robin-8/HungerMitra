@@ -12,7 +12,7 @@ const HotelDetails = () => {
 
   const fetchHotel = async () => {
     const response = await axios.get(
-      "https://hungermitra-api.onrender.com/restaurants"
+      "http://localhost:4000/restaurants"
     );
 
     return response.data.find((hotel) => hotel.id == hotelId);

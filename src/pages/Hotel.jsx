@@ -7,7 +7,7 @@ const Hotel = () => {
   const hotelData = async () => {
     try {
       const response = await axios.get(
-        "https://hungermitra-api.onrender.com/restaurants"
+       "http://localhost:4000/restaurants"
       );
 
       if (!response) throw new Error("fetching not working");
