@@ -30,10 +30,9 @@ import UserManager from "./adminPages/UserManager";
 import OrderAdmin from "./adminPages/OrderAdmin";
 import UserDetails from "./pages/UserDetails";
 import ErrorPage from "./pages/ErrorPage";
+import AdminRoute from "./adminPages/AdminRoute";
 
 const queryClient = new QueryClient();
-
-const existingUser = JSON.parse(localStorage.getItem("user"));
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -59,11 +58,9 @@ createRoot(document.getElementById("root")).render(
           <Route
             path="admin/*"
             element={
-              existingUser && existingUser.role === "admin" ? (
+              <AdminRoute>
                 <AdminLayout />
-              ) : (
-                <Navigate to="/" />
-              )
+              </AdminRoute>
             }
           >
             <Route index element={<AdminDashbord />} />
