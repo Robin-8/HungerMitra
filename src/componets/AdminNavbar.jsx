@@ -21,9 +21,11 @@ const AdminNavbar = () => {
     <Sidebar className="h-screen w-64 bg-gray-900 text-white shadow-lg">
       <SidebarItems>
         <SidebarItemGroup>
-          <SidebarItem href="admin" icon={HiChartPie}>
+         <Link to={'admin'}>
+          <SidebarItem icon={HiChartPie}>
             Dashboard
           </SidebarItem>
+         </Link>
           <Link to={"orderAdmin"}>
             <SidebarItem icon={HiViewBoards}>Order</SidebarItem>
           </Link>

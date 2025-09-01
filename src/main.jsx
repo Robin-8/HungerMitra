@@ -55,17 +55,19 @@ createRoot(document.getElementById("root")).render(
             <Route path="orderSuccess" element={<OrderSuccess />} />
           </Route>
 
+          <Route path="adminLogin" element={<AdminLogin />} />
+          <Route path="adminSignup" element={<AdminSignup />} />
+
+          {/* Protected admin pages */}
           <Route
-            path="admin/*"
+            path="admin"
             element={
-              <AdminRoute>
+              
                 <AdminLayout />
-              </AdminRoute>
+          
             }
           >
             <Route index element={<AdminDashbord />} />
-            <Route path="adminLogin" element={<AdminLogin />} />
-            <Route path="adminSignup" element={<AdminSignup />} />
             <Route path="createUser" element={<UserManager />} />
             <Route path="orderAdmin" element={<OrderAdmin />} />
             <Route path="userDetails" element={<UserDetails />} />
