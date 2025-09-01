@@ -33,6 +33,8 @@ import ErrorPage from "./pages/ErrorPage";
 
 const queryClient = new QueryClient();
 
+const existingUser = JSON.parse(localStorage.getItem("user"));
+
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <QueryClientProvider client={queryClient}>
