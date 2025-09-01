@@ -7,7 +7,7 @@ const UserManager = () => {
   const API_BASE_URL =
     import.meta.env.MODE === "development"
       ? "http://localhost:4000"
-      : "/api/server";
+      : "https://hungermitra-api.onrender.com/restaurants";
 
   // Step 1: function that POSTs to json-server
   const createUser = async (newUser) => {

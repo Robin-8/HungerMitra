@@ -14,7 +14,7 @@ const FoodDetails = () => {
 
   const singleProductDetials = async () => {
     try {
-      const response = await axios.get("/api/server/restaurants");
+const response = await axios.get("https://hungermitra-api.onrender.com/restaurants");
 
       if (!response) throw new Error("failed to fetch single product details");
       return response.data;

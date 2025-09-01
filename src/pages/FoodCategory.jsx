@@ -6,7 +6,7 @@ import { Link, useParams } from "react-router-dom";
 const FoodCategory = () => {
   const fetchingFoodItems = async () => {
     try {
-      const response = await axios.get("/api/server/restaurants");
+const response = await axios.get("https://hungermitra-api.onrender.com/restaurants");
 
       if (!response) throw new Error("fetching not happening");
       return response.data

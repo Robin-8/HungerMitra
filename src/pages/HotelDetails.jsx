@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-    import {Search} from "lucide-react";
+import { Search } from "lucide-react";
 
 const HotelDetails = () => {
   const [search, setSearch] = useState("");
@@ -11,7 +11,9 @@ const HotelDetails = () => {
   const { hotelId } = useParams();
 
   const fetchHotel = async () => {
-   const response = await axios.get("/api/server/restaurants");
+    const response = await axios.get(
+      "https://hungermitra-api.onrender.com/restaurants"
+    );
 
     return response.data.find((hotel) => hotel.id == hotelId);
   };
@@ -52,7 +54,7 @@ const HotelDetails = () => {
         <h1 className="text-2xl font-semibold dark:text-white">{hotel.name}</h1>
         <p className="dark:text-white">{hotel.location}</p>
       </div>
-  
+
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md mx-4 my-6">
         {/* Search Input */}
         <div className="relative w-full sm:w-1/2">
@@ -68,7 +70,6 @@ const HotelDetails = () => {
           />
         </div>
 
-     
         <select
           value={sortedOption}
           onChange={(e) => setSortedOption(e.target.value)}
