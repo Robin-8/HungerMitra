@@ -1,6 +1,6 @@
 import "flowbite";
 
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Navigate } from "react-router-dom";
 import { createRoot } from "react-dom/client";
 import { Routes, Route, Link } from "react-router-dom";
 import "./index.css";
@@ -54,8 +54,16 @@ createRoot(document.getElementById("root")).render(
             <Route path="orderSuccess" element={<OrderSuccess />} />
           </Route>
 
-         
-          <Route path="admin" element={<AdminLayout />}>
+          <Route
+            path="admin/*"
+            element={
+              existingUser && existingUser.role === "admin" ? (
+                <AdminLayout />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          >
             <Route index element={<AdminDashbord />} />
             <Route path="adminLogin" element={<AdminLogin />} />
             <Route path="adminSignup" element={<AdminSignup />} />
@@ -64,7 +72,6 @@ createRoot(document.getElementById("root")).render(
             <Route path="userDetails" element={<UserDetails />} />
           </Route>
 
-          
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Provider>
