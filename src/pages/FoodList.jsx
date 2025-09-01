@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const FoodList = () => {
   const productListing = async () => {
     try {
-const response = await axios.get("http://localhost:4000/restaurants");
+const response = await axios.get("https://fooddaily.onrender.com/restaurants");
 
       if (!response) throw new Error("something error is happening");
       return response.data;

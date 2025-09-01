@@ -11,9 +11,7 @@ const HotelDetails = () => {
   const { hotelId } = useParams();
 
   const fetchHotel = async () => {
-    const response = await axios.get(
-      "http://localhost:4000/restaurants"
-    );
+   const response = await axios.get("https://fooddaily.onrender.com/restaurants");
 
     return response.data.find((hotel) => hotel.id == hotelId);
   };
