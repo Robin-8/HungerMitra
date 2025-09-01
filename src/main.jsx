@@ -59,15 +59,10 @@ createRoot(document.getElementById("root")).render(
           <Route path="adminSignup" element={<AdminSignup />} />
 
           {/* Protected admin pages */}
-          <Route
-            path="admin"
-            element={
-              
-                <AdminLayout />
-          
-            }
-          >
+          <Route path="admin" element={<AdminLayout />}>
             <Route index element={<AdminDashbord />} />
+            <Route path="adminLogin" element={<AdminLogin />} />
+            <Route path="adminSignup" element={<AdminSignup />} />
             <Route path="createUser" element={<UserManager />} />
             <Route path="orderAdmin" element={<OrderAdmin />} />
             <Route path="userDetails" element={<UserDetails />} />
